@@ -2,14 +2,23 @@
   "name": "restaurants",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
+  "jest": {
+    "transform": {}
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:report": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage=true"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "sequelize": "^6.12.0-alpha.1",
     "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "jest": "^27.4.3"
   }
 }
