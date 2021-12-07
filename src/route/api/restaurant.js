@@ -12,6 +12,7 @@ router
   .route("/:id")
   .get(restaurantController.byId)
   .put(restaurantController.update)
+  .patch(restaurantController.update)
   .delete(restaurantController.remove);
 
 export default router;
