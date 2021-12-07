@@ -1,34 +1,59 @@
-import { db, Restaurant, Menu, MenuItem } from "../../src/model/associations";
+import {
+  db,
+  Restaurant,
+  Menu,
+  MenuItem,
+} from "../../src/model/associations.js";
 
-//test musician database CRUD
+// test musician database CRUD
 describe("Associations", () => {
   const testData = {
     restauraunt: {
-      bk: { name: "Burger King", imageLink: "image.url", description: "Best restaurant" },
-      mc: { name: "McDonald's", imageLink: "image.url", description: "Better restaurant" }
+      bk: {
+        name: "Burger King",
+        imageLink: "image.url",
+        description: "Best restaurant",
+      },
+      mc: {
+        name: "McDonald's",
+        imageLink: "image.url",
+        description: "Better restaurant",
+      },
     },
     menu: {
-      bkMenuBreakfast: { title: "Burger King Breakfast Menu", type: "Breakfast" },
-      bkMenuHamburger: { title: "Burger King Hamburger Menu", type: "Hamburger" },
+      bkMenuBreakfast: {
+        title: "Burger King Breakfast Menu",
+        type: "Breakfast",
+      },
+      bkMenuHamburger: {
+        title: "Burger King Hamburger Menu",
+        type: "Hamburger",
+      },
       bkMenuSides: { title: "Burger King Sides Menu", type: "Sides" },
       bkMenuDrinks: { title: "Burger King Drinks Menu", type: "Drinks" },
-      mcMenuBreakfast: { title: "McDonald's Breakfast Menu", type: "Breakfast" },
-      mcMenuHamburger: { title: "McDonald's Hamburger Menu", type: "Hamburger" },
+      mcMenuBreakfast: {
+        title: "McDonald's Breakfast Menu",
+        type: "Breakfast",
+      },
+      mcMenuHamburger: {
+        title: "McDonald's Hamburger Menu",
+        type: "Hamburger",
+      },
       mcMenuSides: { title: "McDonald's Sides Menu", type: "Sides" },
-      mcMenuDrinks: { title: "McDonald's Drinks Menu", type: "Drinks" }
+      mcMenuDrinks: { title: "McDonald's Drinks Menu", type: "Drinks" },
     },
     menuItem: {
-      whopper: { name: "Whopper", price: 2.40, currency: "USD" },
-      dblWhopper: { name: "Double Whopper", price: 3.40, currency: "USD" },
-      hamburger: { name: "Hamburger", price: 1.20, currency: "USD" },
-      cheeseburger: { name: "Hamburger", price: 1.60, currency: "USD" },
+      whopper: { name: "Whopper", price: 2.4, currency: "USD" },
+      dblWhopper: { name: "Double Whopper", price: 3.4, currency: "USD" },
+      hamburger: { name: "Hamburger", price: 1.2, currency: "USD" },
+      cheeseburger: { name: "Hamburger", price: 1.6, currency: "USD" },
       bigMac: { name: "Big Mac", price: 3.75, currency: "USD" },
-      bkFrenchFries: { name: "French Fries", price: 2.10, currency: "USD" },
+      bkFrenchFries: { name: "French Fries", price: 2.1, currency: "USD" },
       mcFrenchFries: { name: "French Fries", price: 1.99, currency: "USD" },
-    }
+    },
   };
-  
-  beforeAll(async () => {
+
+  beforeEach(async () => {
     await db.sync({ force: true });
     // const burgerKing = await Restaurant.create(testData.restauraunt.bk);
     // const mcdonalds = await Restaurant.create(testData.restauraunt.mc);
@@ -41,7 +66,11 @@ describe("Associations", () => {
     // const whopper = await MenuItem.create(testData.menuItem.whopper);
     // const dblWhopper = await MenuItem.create(testData.menuItem.dblWhopper);
     // bkMenuHamburger.addMenuItems([whopper, dblWhopper]);
-  })
+  });
+
+  afterAll(async () => {
+    await db.sync({ force: true });
+  });
 
   test("can create a restaurant", async () => {
     const burgerKing = await Restaurant.create(testData.restauraunt.bk);

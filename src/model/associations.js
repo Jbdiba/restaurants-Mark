@@ -1,7 +1,7 @@
 import { db } from "../data/db.js";
-import Restaurant from "./restaurant";
-import Menu from "./menu";
-import MenuItem from "./menu_item";
+import Restaurant from "./restaurant.js";
+import Menu from "./menu.js";
+import MenuItem from "./menu-item.js";
 
 MenuItem.belongsTo(Menu);
 Menu.hasMany(MenuItem);
