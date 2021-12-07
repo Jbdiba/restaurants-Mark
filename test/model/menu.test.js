@@ -1,5 +1,6 @@
 import { db } from "../../src/data/db.js";
 import Menu from "../../src/model/menu.js";
+import seed from "../../src/data/seed-db.js";
 
 describe("Menu", () => {
   beforeAll(async () => {
@@ -7,7 +8,7 @@ describe("Menu", () => {
   });
 
   afterAll(async () => {
-    await db.sync({ force: true });
+    await seed();
   });
 
   test("can create a menu", async () => {

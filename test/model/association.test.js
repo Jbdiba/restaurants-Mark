@@ -4,6 +4,7 @@ import {
   Menu,
   MenuItem,
 } from "../../src/model/associations.js";
+import seed from "../../src/data/seed-db.js";
 
 // test musician database CRUD
 describe("Associations", () => {
@@ -69,7 +70,7 @@ describe("Associations", () => {
   });
 
   afterAll(async () => {
-    await db.sync({ force: true });
+    await seed();
   });
 
   test("can create a restaurant", async () => {

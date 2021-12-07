@@ -91,15 +91,4 @@ const seed = async () => {
   }
 };
 
-seed()
-  .then(() => {
-    /* eslint-disable no-console */
-    console.log("Seeding success!");
-    /* eslint-disable no-console */
-  })
-  .catch((err) => {
-    /* eslint-disable no-console */
-    console.error("Oh noes! Something went wrong!");
-    console.error(err);
-    /* eslint-disable no-console */
-  });
+export default seed;

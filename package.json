@@ -11,8 +11,11 @@
         "dev": "nodemon src/index.js",
         "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
         "test:report": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage=true",
+        "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
         "lint": "eslint src/**/*.js test/**/*.js",
-        "lint:fix": "npm run lint -- --fix"
+        "lint:fix": "npm run lint -- --fix",
+        "format": "preetier -w .",
+        "seed": "node src/data/initialize-db.js"
     },
     "keywords": [],
     "author": "",
@@ -33,6 +36,7 @@
         "eslint-plugin-react-hooks": "^4.3.0",
         "jest": "^27.4.3",
         "nodemon": "^2.0.15",
-        "prettier": "^2.5.1"
+        "prettier": "^2.5.1",
+        "supertest": "^6.1.6"
     }
 }

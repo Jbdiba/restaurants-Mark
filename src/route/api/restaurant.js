@@ -3,7 +3,15 @@ import restaurantController from "../../controller/api/restaurant.js";
 
 const router = express.Router();
 
-router.get("/", restaurantController.listAll);
+router
+  .route("/")
+  .get(restaurantController.listAll)
+  .post(restaurantController.listAll);
 
-const restaurant = router;
-export default restaurant;
+router
+  .route("/:id")
+  .get(restaurantController.byId)
+  .put(restaurantController.update)
+  .delete(restaurantController.remove);
+
+export default router;
